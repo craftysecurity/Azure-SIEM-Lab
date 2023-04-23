@@ -8,3 +8,10 @@ if (!(Test-Path -Path ".\failedlogins.json")) {
 }
 
 # loop through each event and get properties
+
+foreach ($failedlogon in $failedlogons) {
+   
+    if (!(Test-Path -Path ".\failedlogins.json")) {
+        New-Item -Path ".\failedlogins.json" -ItemType File
+        $failedloginsfile = ".\failedlogins.json"
+    }
